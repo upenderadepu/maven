@@ -188,8 +188,8 @@ public class DefaultRepositorySystemSessionFactory
         DefaultMirrorSelector mirrorSelector = new DefaultMirrorSelector();
         for ( Mirror mirror : request.getMirrors() )
         {
-            mirrorSelector.add( mirror.getId(), mirror.getUrl(), mirror.getLayout(), false, mirror.getMirrorOf(),
-                                mirror.getMirrorOfLayouts() );
+            mirrorSelector.add( mirror.getId(), mirror.getUrl(), mirror.getLayout(), false, mirror.isBlocked(),
+                                mirror.getMirrorOf(), mirror.getMirrorOfLayouts() );
         }
         session.setMirrorSelector( mirrorSelector );
 
@@ -249,7 +249,7 @@ public class DefaultRepositorySystemSessionFactory
         mavenRepositorySystem.injectProxy( session, request.getPluginArtifactRepositories() );
         mavenRepositorySystem.injectAuthentication( session, request.getPluginArtifactRepositories() );
 
-        if ( Features.buildConsumer().isActive() )
+        if ( Features.buildConsumer( request.getUserProperties() ).isActive() )
         {
             session.setFileTransformerManager( a -> getTransformersForArtifact( a, session.getData() ) );
         }

@@ -45,8 +45,8 @@ You can download the release source from our [download page][maven-download].
 Contributing
 ------------
 
-If you are interested in the development of Maven, please consult the 
-documentation first and afterward you are welcome to join the developers 
+If you are interested in the development of Maven, please consult the
+documentation first and afterward you are welcome to join the developers
 mailing list to ask questions or discuss new ideas/features/bugs etc.
 
 Take a look into the [contribution guidelines](CONTRIBUTING.md).
@@ -64,11 +64,11 @@ Do you like Apache Maven? Then [donate back to the ASF](https://www.apache.org/f
 Quick Build
 -------
 If you want to bootstrap Maven, you'll need:
-- Java 1.8+
+- Java 8+
 - Maven 3.0.5 or later
 - Run Maven, specifying a location into which the completed Maven distro should be installed:
     ```
-    mvn -DdistributionTargetDir="$HOME/app/maven/apache-maven-3.7.x-SNAPSHOT" clean package
+    mvn -DdistributionTargetDir="$HOME/app/maven/apache-maven-4.0.x-SNAPSHOT" clean package
     ```
 
 

@@ -10,14 +10,10 @@ if $cygwin ; then
     LAUNCHER_JAR=`cygpath --path --windows "$LAUNCHER_JAR"`
 fi
 
-# Provide a "standardized" way to retrieve the CLI args that will
-# work with both Windows and non-Windows executions.
-MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $@"
-export MAVEN_CMD_LINE_ARGS
-
 exec "$JAVACMD" \
   $MAVEN_OPTS \
   $MAVEN_DEBUG_OPTS \
   -classpath "${LAUNCHER_JAR}" \
-  $MAVENHOME_CONFIG "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
+  $MAVENHOME_CONFIG \
+  "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
   $MAVEN_LAUNCHER "$@"
